@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "vue-crt-edp-gitops.fullname" . }}
+  labels:
+    {{- include "vue-crt-edp-gitops.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "vue-crt-edp-gitops.selectorLabels" . | nindent 4 }}

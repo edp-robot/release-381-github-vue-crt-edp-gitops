@@ -1,0 +1,1 @@
+1. Application vue-crt-edp-gitops has been successfully deployed!!
